@@ -1,0 +1,25 @@
+@mixin center-h($position) {
+  position: $position;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin center-v($position) {
+  position: $position;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin center-h-v($position) {
+  position: $position;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin linear-gradient-x($deg, $start, $end, $opstart, $opend) {
+  background-image:
+    linear-gradient($deg,
+      rgba($start, $opstart) 0%,
+      rgba($end, $opend) 100%
+    );
+}
