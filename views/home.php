@@ -2,7 +2,7 @@
 
 <?php if(isset($_SESSION['user'])) { ?>
 
-    <a href="?action=deconnexion">Deconnexion</a>
+    <a href="?action=deconnexion&controler=user">Deconnexion</a>
 
 <?php } else { ?>
 

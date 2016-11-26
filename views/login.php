@@ -8,7 +8,7 @@ if(isset($errors)) {
 }
 ?>
 
-<form method="post" action="index.php?action=connexion">
+<form method="post" action="index.php?action=connexion&controler=user">
 
     <div class="line">
         <label for="pseudo">Nom d'utilisateur</label>

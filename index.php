@@ -3,6 +3,7 @@ session_start();
 
 $page = 'home';
 $layout = 'default';
+$controler = '';
 
 // connect to bdd...
 require_once 'includes/functions.php';
@@ -16,11 +17,16 @@ if(!empty($_GET['action'])) {
 
 $template = $page;
 
+
+if(!empty($_GET['controler'])) {
+    $controler = $_GET['controler'];
+}
+
 /*
  * Controller
  */
-if(file_exists('controller/'.$page.'.php')) {
-    include 'controller/'.$page.'.php';
+if(file_exists('controller/'.$controler.'/'.$page.'.php')) {
+    include 'controller/'.$controler.'/'.$page.'.php';
 }
 
 include 'views/theme/'.$layout.'.php';

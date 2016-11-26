@@ -16,3 +16,9 @@ function user_auth($pseudo, $pass) {
     }
 }
 
+function insertUser($credentials) {
+
+    $query = "INSERT INTO users(pseudo, email, pass, name, lastname, avatar, created, updated) VALUES('".$credentials['pseudo']."', '".$credentials['email']."', '".sha1($credentials['pass'])."', '".$credentials['name']."', '".$credentials['lastname']."', '".$credentials['avatar']."', '".date("Y-m-d H:i:s")."', '".date("Y-m-d H:i:s")."')";
+
+    execute_query($query);
+}
