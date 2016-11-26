@@ -8,5 +8,5 @@
 
     <a href="?action=signup">Inscription</a>
     <a href="?action=login">Connexion</a>
-    
+
 <?php } ?>

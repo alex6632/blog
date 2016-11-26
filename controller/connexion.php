@@ -23,11 +23,9 @@ function connexion() {
     return user_auth($pseudo, $pass);
 }
 
-
-
-
 $user = connexion();
 
+// SI il n'y a pas d'utilisateurs correspondant au login et mdp entré, on re affiche le formulaire de connexion SINON on enregistre en session l'id de l'utilisateur et on le renvoie sur la page d'accueil !
 if(!$user) {
     $template = 'login';
 } else {

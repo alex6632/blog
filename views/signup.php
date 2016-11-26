@@ -9,8 +9,6 @@ if(isset($errors)) {
 ?>
 
 <form method="post" action="index.php?action=inscription">
-    <h2>Inscription</h2>
-
     <div class="line">
         <label for="pseudo">Nom d'utilisateur</label>
         <input type="text" name="pseudo" placeholder="Nom d'utilisateur" id="pseudo" <?php if(isset($_POST['pseudo'])) { echo "value='".$_POST['pseudo']."'"; } ?>>
