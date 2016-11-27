@@ -19,14 +19,25 @@
     margin: 10px 0;
     width: 100%;
 
+    &--rel {
+      position: relative;
+    }
+
     &__label {
       display: inline-block;
       vertical-align: middle;
       color: color(foreground, invert);
       width: 150px;
+
+      &--top {
+        vertical-align: top;
+        margin-top: 15px;
+      }
     }
 
-    &__input {
+    &__input,
+    &__textarea,
+    &__select {
       display: inline-block;
       vertical-align: middle;
       width: calc(100% - 170px);
@@ -64,6 +75,24 @@
           opacity: 0;
         }
       }
+    }
+    &__select {
+      position: relative;
+      border-radius: 0;
+      height: 50px;
+      -webkit-appearance: none;
+
+      &__arrow {
+        @include center-v(absolute);
+        right: 15px;
+        width: 20px;
+        z-index: 1;
+      }
+    }
+
+    &__textarea {
+      height: 150px;
+      resize: none;
     }
   }
   .button {

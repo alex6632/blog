@@ -28,23 +28,23 @@
         </div>
 
         <div class="form__line">
-            <label for="pseudo" class="form__line__label">Nom d'utilisateur<sup>*</sup> : </label>
+            <label for="pseudo" class="form__line__label">Nom d'utilisateur * : </label>
             <input type="text" name="pseudo" placeholder="Nom d'utilisateur" class="form__line__input" id="pseudo" <?php if(isset($_POST['pseudo'])) { echo "value='".$_POST['pseudo']."'"; } ?> required>
         </div>
 
         <div class="form__line">
-            <label for="email" class="form__line__label">Email<sup>*</sup> : </label>
+            <label for="email" class="form__line__label">Email * : </label>
             <input type="email" name="email" placeholder="toto@toto.fr" class="form__line__input" id="email" required>
         </div>
 
 
         <div class="form__line">
-            <label for="pass" class="form__line__label">Mot de passe<sup>*</sup> : </label>
+            <label for="pass" class="form__line__label">Mot de passe * : </label>
             <input type="password" name="pass" placeholder="******" class="form__line__input" id="pass" required>
         </div>
 
         <div class="form__line">
-            <label for="confpass" class="form__line__label">Vérification du mot de passe<sup>*</sup> : </label>
+            <label for="confpass" class="form__line__label">Vérification du mot de passe * : </label>
             <input type="password" name="confpass" placeholder="******" class="form__line__input" id="confpass" required>
         </div>
 
@@ -60,6 +60,6 @@
             <input type="submit" value="S'inscrire" name="inscription" class="button">
         </div>
 
-        <p class="form__info"><sup>*</sup> Ces champs sont obligatoire pour finaliser l'inscription.</p>
+        <p class="form__info">* Ces champs sont obligatoire pour finaliser l'inscription.</p>
     </form>
 </div>

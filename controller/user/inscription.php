@@ -12,7 +12,7 @@ function signUpAction() {
     if(empty($errors)) {
         insertUser($credentials);
 
-        $template = 'home';
+        $template = 'login';
 
     } else {
         $template = 'signup';

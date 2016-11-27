@@ -29,6 +29,6 @@ $user = connexion();
 if(!$user) {
     $template = 'login';
 } else {
-    $_SESSION['user'] = $user['id_user'];
-    $template = 'home';
+    $_SESSION['id_user'] = $user['id_user'];
+    $template = 'profile';
 }

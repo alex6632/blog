@@ -11,9 +11,10 @@
     <header class="main-header">
         <div class="container">
             <a href="index.php"><h1 class="h1">Wesh blog</h1></a>
-            <?php if(isset($_SESSION['user'])) { ?>
+            <?php if(isset($_SESSION['id_user'])) { ?>
 
                 <a href="?action=deconnexion&controler=user" class="inline-b link link--bg">Deconnexion</a>
+                <a href="?action=edit" class="inline-b link link--rv"><img src="images/edit.svg" class="icon" alt="">Écrire un article !</a>
 
             <?php } else { ?>
 

@@ -27,6 +27,17 @@
       transition: all $time $ease;
     }
   }
+
+  &--rv {
+    color: color(foreground, invert);
+  }
+
+  .icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 17px;
+    margin-right: 10px;
+  }
 }
 
 .button {
