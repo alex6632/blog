@@ -31,6 +31,7 @@ function getPostSignUp() {
 
 function checkErrors($credentials) {
 
+        global $errors;
         $errors = [];
         // TODO : Faire des vraies checks par fonction
         if( empty($credentials['pseudo']) ) {

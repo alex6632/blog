@@ -24,6 +24,7 @@
         </div>
     </header>
 
+    <?php if($template == 'home') { ?>
     <div class="main-presentation">
         <div class="container">
             <div class="w50">
@@ -50,10 +51,9 @@
             </div>
         </div>
     </div>
+    <?php } ?>
 
-    <div class="container">
-        <?php include 'views/'.$template.'.php'; ?>
-    </div>
+    <?php include 'views/'.$template.'.php'; ?>
 
     <footer class="main-footer">
         <p class="main-footer__desc">Blog réalisé par Kevin Loiseleur et Alexandre Simonin, étudiants en M1-Developpement à l'ECV Digital de Paris</p>

@@ -1,49 +1,65 @@
-<h1>Inscription</h1>
-
-<?php
-if(isset($errors)) {
-    foreach($errors as $key => $error) {
-        echo "<ul><li style='color:red;'><b>Erreur </b><i>".$key."</i> : ".$error."</li></ul>";
-    }
-}
-?>
-
-<form method="post" action="index.php?action=inscription&controler=user">
-    <div class="line">
-        <label for="prenom">Prénom : </label>
-        <input type="text" name="name" placeholder="Prénom" id="prenom" <?php if(isset($_POST['name'])) { echo "value='".$_POST['name']."'"; } ?> >
+<div class="bloc-title">
+    <div class="container">
+        <h1>S'inscrire</h1>
     </div>
+</div>
 
-    <div class="line">
-        <label for="nom">Nom : </label>
-        <input type="text" name="lastname" placeholder="Nom" id="nom" <?php if(isset($_POST['lastname'])) { echo "value='".$_POST['lastname']."'"; } ?> >
-    </div>
+<div class="container">
+    <form method="post" action="index.php?action=inscription&controler=user" class="form">
 
-    <div class="line">
-        <label for="pseudo">Nom d'utilisateur<sup>*</sup> : </label>
-        <input type="text" name="pseudo" placeholder="Nom d'utilisateur" id="pseudo" <?php if(isset($_POST['pseudo'])) { echo "value='".$_POST['pseudo']."'"; } ?> required>
-    </div>
+        <?php
+        if(isset($errors)) {
+            echo "<div class='error'>";
+            foreach($errors as $key => $error) {
+                echo "<ul class='error__list'><li class='error__list__item'><b>Erreur </b> : ".$error."</li></ul>";
+            }
+            echo "</div>";
+        }
+        ?>
 
-    <div class="line">
-        <label for="email">Email<sup>*</sup> : </label>
-        <input type="email" name="email" id="email" required>
-    </div>
+        <div class="form__line">
+            <label for="prenom" class="form__line__label">Prénom : </label>
+            <input type="text" name="name" placeholder="Prénom" class="form__line__input" id="prenom" <?php if(isset($_POST['name'])) { echo "value='".$_POST['name']."'"; } ?> >
+        </div>
+
+        <div class="form__line">
+            <label for="nom" class="form__line__label">Nom : </label>
+            <input type="text" name="lastname" placeholder="Nom" class="form__line__input" id="nom" <?php if(isset($_POST['lastname'])) { echo "value='".$_POST['lastname']."'"; } ?> >
+        </div>
+
+        <div class="form__line">
+            <label for="pseudo" class="form__line__label">Nom d'utilisateur<sup>*</sup> : </label>
+            <input type="text" name="pseudo" placeholder="Nom d'utilisateur" class="form__line__input" id="pseudo" <?php if(isset($_POST['pseudo'])) { echo "value='".$_POST['pseudo']."'"; } ?> required>
+        </div>
+
+        <div class="form__line">
+            <label for="email" class="form__line__label">Email<sup>*</sup> : </label>
+            <input type="email" name="email" placeholder="toto@toto.fr" class="form__line__input" id="email" required>
+        </div>
 
 
-    <div class="line">
-        <label for="pass">Mot de passe<sup>*</sup> : </label>
-        <input type="password" name="pass" id="pass" required>
-    </div>
+        <div class="form__line">
+            <label for="pass" class="form__line__label">Mot de passe<sup>*</sup> : </label>
+            <input type="password" name="pass" placeholder="******" class="form__line__input" id="pass" required>
+        </div>
 
-    <div class="line">
-        <label for="confpass">Vérification du mot de passe<sup>*</sup> : </label>
-        <input type="password" name="confpass" id="confpass" required>
-    </div>
+        <div class="form__line">
+            <label for="confpass" class="form__line__label">Vérification du mot de passe<sup>*</sup> : </label>
+            <input type="password" name="confpass" placeholder="******" class="form__line__input" id="confpass" required>
+        </div>
 
-    <div class="line">
-        <label for="avatar">Avatar : </label>
-        <input type="file" name="avatar" id="avatar">
-    </div>
+        <div class="form__line">
+            <label for="avatar" class="form__line__label">Avatar : </label>
+            <div class="form__line__input form__line__input--upload">
+                Cliquez ici pour uploader un avatar
+                <input type="file" name="avatar" id="avatar">
+            </div>
+        </div>
 
-    <input type="submit" value="S'inscrire" name="inscription">
-</form>
+        <div class="form__line">
+            <input type="submit" value="S'inscrire" name="inscription" class="button">
+        </div>
+
+        <p class="form__info"><sup>*</sup> Ces champs sont obligatoire pour finaliser l'inscription.</p>
+    </form>
+</div>

@@ -9,7 +9,7 @@ function user_auth($pseudo, $pass) {
     $results = my_fetch_all($query);
 
     if(count($results) < 1) {
-        $errors['pseudo'] = "identifiants incorrects";
+        $errors['pseudo'] = "Nom d'utilisateur et/ou mot de passe incorrect(s)";
         return false;
     } else {
         return $results[0];

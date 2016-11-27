@@ -30,5 +30,8 @@
 }
 
 .button {
-
+  @extend .link;
+  @extend .link--bg;
+  -webkit-appearance: none;
+  font-size: 16px;
 }

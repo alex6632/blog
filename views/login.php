@@ -1,25 +1,33 @@
-<h1>Connexion</h1>
-
-<?php
-if(isset($errors)) {
-    foreach($errors as $key => $error) {
-        echo "<ul><li style='color:red;'><b>Erreur </b><i>".$key."</i> : ".$error."</li></ul>";
-    }
-}
-?>
-
-<form method="post" action="index.php?action=connexion&controler=user">
-
-    <div class="line">
-        <label for="pseudo">Nom d'utilisateur</label>
-        <input type="text" name="pseudo" placeholder="Nom d'utilisateur" id="pseudo" <?php if(isset($_POST['pseudo'])) { echo "value='".$_POST['pseudo']."'"; } ?>>
+<div class="bloc-title">
+    <div class="container">
+        <h1>Se connecter</h1>
     </div>
+</div>
 
-    <div class="line">
-        <label for="pass">Mot de passe</label>
-        <input type="password" name="pass" id="pass">
-    </div>
+<div class="container">
+    <form method="post" action="index.php?action=connexion&controler=user" class="form">
+
+        <?php
+        if(isset($errors)) {
+            echo "<div class='error'>";
+            foreach($errors as $key => $error) {
+                echo "<ul class='error__list'><li class='error__list__item'><b>Erreur </b> : ".$error."</li></ul>";
+            }
+            echo "</div>";
+        }
+        ?>
+
+        <div class="form__line">
+            <label for="pseudo" class="form__line__label">Nom d'utilisateur</label>
+            <input type="text" name="pseudo" placeholder="ex : r_dupont" class="form__line__input" id="pseudo" <?php if(isset($_POST['pseudo'])) { echo "value='".$_POST['pseudo']."'"; } ?>>
+        </div>
+
+        <div class="form__line">
+            <label for="pass" class="form__line__label">Mot de passe</label>
+            <input type="password" name="pass" placeholder="*********" id="pass" class="form__line__input">
+        </div>
 
 
-    <input type="submit" value="Se connecter" name="connexion">
-</form>
+        <input type="submit" value="Se connecter" name="connexion" class="button">
+    </form>
+</div>
