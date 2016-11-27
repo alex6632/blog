@@ -1,0 +1,19 @@
+// header.scss
+
+.main-header {
+  width: 100%;
+  height: $header;
+  background-color: color(secondary);
+
+  .h1 {
+    float: left;
+    color: color(foreground, invert);
+    margin-top: 12px;
+    text-decoration: none;
+  }
+
+  .link {
+    float: right;
+    margin: 10px 4px;
+  }
+}

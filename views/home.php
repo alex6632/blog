@@ -1,12 +1,14 @@
-<h1>Accueil</h1>
+<div class="home">
+    <h2 class="h2">Les derniers articles</h2>
+    <?php
+        // TODO : boucle affichant les derniers articles - trier par date - les 10 derniers par exemple
+    ?>
 
-<?php if(isset($_SESSION['user'])) { ?>
+    TODO...
 
-    <a href="?action=deconnexion&controler=user">Deconnexion</a>
+    <ul class="list">
+        <li class="list__item">
 
-<?php } else { ?>
-
-    <a href="?action=signup">Inscription</a>
-    <a href="?action=login">Connexion</a>
-
-<?php } ?>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,66 @@
+// main-presentation.scss
+
+.main-presentation {
+  width: 100%;
+  background-color: rgba(color(background, light), .3);
+  padding: 50px 0;
+
+  .w50 {
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(50% - 4px);
+  }
+
+  &__title {
+    font-size: 30px;
+    font-weight: 900;
+    color: color(secondary);
+    margin: 30px 0;
+  }
+
+  &__desc {
+    font-size: 18px;
+    font-weight: 300;
+    color: color(secondary);
+    line-height: 25px;
+  }
+
+  &__block {
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(50% - 4px);
+    text-align: center;
+
+    &__avatar {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      background-color: color(secondary);
+      border-radius: 100%;
+      margin: auto;
+      box-shadow: 0px 0px 10px 0px color('grey', grey4);
+      overflow: hidden;
+
+      img {
+        max-width: 100%;
+        @include center-h-v(absolute);
+      }
+    }
+
+    &__name {
+      font-size: 22px;
+      font-weight: 700;
+      font-style: italic;
+      color: color(secondary);
+      margin-top: 15px;
+    }
+
+    &__function {
+      font-size: 18px;
+      font-weight: 400;
+      font-style: italic;
+      color: color(secondary);
+      margin-top: 8px;
+    }
+  }
+}

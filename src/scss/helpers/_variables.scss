@@ -1,67 +1,39 @@
 // _variables.scss
 
-$font-size-base: 14px;
-$wrapper-width: 1200px;
-$header: 60px;
-$time: 300ms;
-$ease : ease-in-out;
+$size            : 14px;
+$container       : 1200px;
+$header          : 60px;
+$radius          : 5px;
+$time            : 300ms;
+$ease            : ease-in-out;
 
-/// Colors map, gathering all colors of the application
-/// @access private
-/// @type Map
-/// @prop {String} key - color name
-/// @prop {Hex} value - color value mapped to the key
+$mobile          : 480px;
+$tablet-s        : 769px;
+$tablet          : 1024px;
+$desktop-s       : 1250px;
+
 $color-key: 'base' !default;
 $colors: (
         'primary': (
-                'base': #ff641e, //orange
-                'yellow': #fff000, //yellow
-
+                'base': #6dc4ff,
         ),
         'secondary': (
-                'base': #8accd9, //blue
-                'dark': #39b0c8, //blue dark
-                'dark-more': #2c66b6, //blue dark more
-                'yellow': #ffb81e, //yellow
+                'base': #063b56,
+                'light': #2673a8,
         ),
         'foreground': (
-                'base': #3e3e3e, //gray
+                'base': #000,
                 'invert': #fff
         ),
         'background': (
-                'base': #ffffff, //white
-                'invert': #000 //black
+                'base': #ffffff,
+                'invert': #000,
+                'light': #c4ddeb,
         ),
         'grey': (
                 'base': #ededed,
-                'grey2': #e1e1e1,
-                'grey3': #3e3e3e,
-                'grey4': #bababa,
-                'grey5': #7a7a7a,
-        ),
-        'social': (
-                'base': #3e3e3e,
-                'twitter': #3fcad6,
-                'facebook': #2956a8
+                'grey2': #bababa,
+                'grey3': #7a7a7a,
+                'grey4': #3e3e3e,
         )
 );
-
-/// Fonts map, gathering all fonts of the application
-/// @access private
-/// @type Map
-/// @prop {String} key - font name
-/// @prop {String} value - font value mapped to the key
-$fonts: (
-        'primary': (Raleway, sans-serif),
-        'secondary': (DINCond, sans-serif),
-        'logo': (Futura, sans-serif),
-        'icon': (ao-icon-izneo, sans-serif)
-);
-
-
-$mobile: 480px;
-$tablet: 769px;
-$desktop-s: 1024px;
-$desktop: 1440px;
-$desktop-l: 1600px;
-$screen-4k: 2560px;

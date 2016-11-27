@@ -1,0 +1,34 @@
+// buttons.scss
+
+.link {
+  background: transparent;
+  border: solid 2px color(secondary, light);
+  border-radius: $radius;
+  color: color(secondary, light);
+  padding: 8px 20px;
+  cursor: pointer;
+  transition: color $time $ease, background-color $time $ease, border $time $ease;
+
+  &:hover {
+    border: solid 2px color(background);
+    color: color(foreground, invert);
+    transition: all $time $ease;
+  }
+
+  &--bg {
+    background-color: color(secondary, light);
+    color: color(foreground, invert);
+    transition: all $time $ease;
+
+    &:hover {
+      background-color: transparent;
+      border: solid 2px color(secondary, light);
+      color: color(secondary, light);
+      transition: all $time $ease;
+    }
+  }
+}
+
+.button {
+
+}
