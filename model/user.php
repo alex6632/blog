@@ -31,3 +31,12 @@ function selectInfoUser() {
 
     return $data;
 }
+
+function selectAuthorOfTopic($id_author) {
+
+    $query = "SELECT pseudo FROM users WHERE id_user = ".$id_author;
+
+    $data = execute_query($query);
+
+    return $data;
+}

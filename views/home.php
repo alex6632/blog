@@ -1,16 +1,47 @@
 <div class="home">
     <div class="container">
         <h2 class="h2">Les derniers articles</h2>
-        <?php
-            // TODO : boucle affichant les derniers articles - trier par date - les 10 derniers par exemple
-        ?>
-
-        TODO...
 
         <ul class="list">
-            <li class="list__item">
+            <?php
+            // Boucle affichant les derniers articles - trier par date - les 10 derniers par exemple
 
-            </li>
+            require_once 'model/category.php';
+            require_once 'model/topic.php';
+            require_once 'model/user.php';
+
+            $data = selectInfoLastBillet();
+            foreach ($data as $key => $value) {
+                $id_billet = $value['id_billet'];
+                $title = $value['title'];
+                $created = $value['created'];
+                $id_author = $value['id_user'];
+                $id_category = $value['id_category'];
+
+                $dataUser = selectAuthorOfTopic($id_author);
+                foreach ($dataUser as $key2 => $value2) {
+                    $pseudo = $value2['pseudo'];
+
+                    $dataCategory = selectCategoryOfTopic($id_category);
+                    foreach ($dataCategory as $key3 => $value3) {
+
+                        $name_cat = $value3['name'];
+                        $img_cat = $value3['image'];
+
+                        echo '<li class="list__item">';
+                            echo '<a class="list__item__img" href="?action=topic&id_billet=' . $id_billet . '"><img src="images/'.$img_cat.'" alt="Image de la catégorie"></a>';
+                            echo '<div class="list__item__cat">'.$name_cat.'</div>';
+
+                        echo '<a href="?action=topic&id_billet=' . $id_billet . '">';
+                            echo '<div class="list__item__title">'.$title.'</div>';
+                            echo "<div class=\"list__item__footer\">Le ".$created." | Par ".$pseudo."</div>";
+                        echo '</a>';
+
+                        echo '</li>';
+                    }
+                }
+            }
+            ?>
         </ul>
     </div>
 </div>

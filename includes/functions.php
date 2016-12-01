@@ -27,3 +27,14 @@ function escape($data) {
 
     return mysqli_escape_string($link, $data);
 }
+
+function getPost() {
+
+    $credentials = [];
+
+    foreach ($_POST as $k => $v) {
+        $credentials[$k] = $v;
+    }
+
+    return ($credentials);
+}

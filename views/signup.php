@@ -57,9 +57,15 @@
         </div>
 
         <div class="form__line">
+            <input type="checkbox" name="blogger" class="form__line__check" id="type">
+            <label for="type" class="form__line__label form__line__label--full form__line__label--check">Je souhaite être blogger (possibilité d'écrire des articles) ** :</label>
+        </div>
+
+        <div class="form__line">
             <input type="submit" value="S'inscrire" name="inscription" class="button">
         </div>
 
         <p class="form__info">* Ces champs sont obligatoire pour finaliser l'inscription.</p>
+        <p class="form__info">** Vous pourrez toujours décider de faire la demande une fois l'inscription terminée, dans votre profil.</p>
     </form>
 </div>
