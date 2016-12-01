@@ -1,6 +1,7 @@
 <?php
 
-function user_auth($pseudo, $pass) {
+// change name with Model include
+function userAuthModel($pseudo, $pass) {
 
     global $errors;
 
@@ -16,7 +17,16 @@ function user_auth($pseudo, $pass) {
     }
 }
 
-function insertUser($credentials) {
+function checkUnique($col, $content) {
+    $query = "SELECT ".$col." FROM users WHERE ".$col." = '".escape($content)."'";
+    $res = my_fetch_all($query);
+    if ((count($res)) > 0) {
+        return (false);
+    }
+    return (true);
+}
+
+function insertUserModel($credentials) {
 
     $query = "INSERT INTO users(pseudo, email, pass, name, lastname, avatar, created, updated) VALUES('".$credentials['pseudo']."', '".$credentials['email']."', '".sha1($credentials['pass'])."', '".$credentials['name']."', '".$credentials['lastname']."', '".$credentials['avatar']."', '".date("Y-m-d H:i:s")."', '".date("Y-m-d H:i:s")."')";
 
