@@ -19,7 +19,7 @@
 
         <div class="form__line">
             <label for="pseudo" class="form__line__label">Nom d'utilisateur</label>
-            <input type="text" name="pseudo" placeholder="ex : r_dupont" class="form__line__input" id="pseudo" <?php if(isset($_POST['pseudo'])) { echo "value='".$_POST['pseudo']."'"; } ?>>
+            <input type="text" name="pseudo" placeholder="ex : r_dupont" class="form__line__input" id="pseudo" <?php if(isset($_POST['pseudo'])) { echo "value='".htmlspecialchars($_POST['pseudo'])."'"; } ?>>
         </div>
 
         <div class="form__line">
