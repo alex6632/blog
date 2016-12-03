@@ -72,15 +72,14 @@ function checkPasswd($s, $s1) {
     return (0);
 }
 
-// CHECK GOOD FORM
-function check_form($hide)
-{
-    if (isset($_POST['hide']) && $_POST['hide'] === '123')
-    {
-        return (true);
+/*
+ * This function permits to get the credentials send by the post form at signUp page
+ */
+function getPost() {
+    $credentials = [];
+    foreach ($_POST as $k => $v) {
+        $credentials[$k] = $v;
     }
-    return (false);
+    return ($credentials);
 }
-
-
 ?>

@@ -5,7 +5,7 @@ require_once 'utils.php';
 
 
 /*
- *  USER SIGNUP ACTION
+ *  User SignUp Action
  */
 function signUpAction() {
     global $template;
@@ -14,13 +14,13 @@ function signUpAction() {
     $errors = checkSignUpErrors($credentials);
     // PHOTO AVATAR
 
-
-
     if(empty($errors)) {
         insertUserModel($credentials);
+        if (isset($credentials['blogger'])) {
+            sendMailAskBlogger($credentials);
+        }
+        sendMailSignUp($credentials);
         $template = 'login';
-        // ENVOIE MAIL CONFIRMATION
-        // ENVOIE MAIL AU ADMINS POUR POUVOIR ECRIRE UN ARTICLE ?
     } else {
         $template = 'signup';
     }
@@ -28,14 +28,12 @@ function signUpAction() {
 
 
 /*
- *  CHECK THE ERRORS IN THE SIGNUP FORM
+ *  Check the errors on the SignUp form
  */
 function checkSignUpErrors($credentials) {
-
     global $errors;
     $errors = [];
 
-    // checkGoodForm($credentials) ADD HIDEN INPUT TO CHECK GOOD FORM
     if (!checkName($credentials['name']))
         $errors['name'] = 'Le prénom ne doit contenir que des caractères alphabétiques.';
 
@@ -80,9 +78,6 @@ function checkSignUpErrors($credentials) {
             $errors['pass'] = 'Le mot de passe et la vérification ne sont pas similaires';
         }
     }
-
-    // CHECK AVATAR
-    // CHECK SIGNATURE FORM TO RECEIVE ONLY THE GOOD FORM FROM SIGNUP VIEW (hidden input ?)
     return $errors;
 }
 

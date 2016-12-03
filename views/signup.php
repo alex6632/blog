@@ -19,22 +19,22 @@
 
         <div class="form__line">
             <label for="prenom" class="form__line__label">Prénom : </label>
-            <input type="text" name="name" placeholder="Prénom" class="form__line__input" id="prenom" <?php if(isset($_POST['name'])) { echo "value='".$_POST['name']."'"; } ?> >
+            <input type="text" name="name" placeholder="Prénom" class="form__line__input" id="prenom" <?php if(isset($_POST['name'])) { echo "value='".htmlspecialchars($_POST['name'])."'"; } ?> >
         </div>
 
         <div class="form__line">
             <label for="nom" class="form__line__label">Nom : </label>
-            <input type="text" name="lastname" placeholder="Nom" class="form__line__input" id="nom" <?php if(isset($_POST['lastname'])) { echo "value='".$_POST['lastname']."'"; } ?> >
+            <input type="text" name="lastname" placeholder="Nom" class="form__line__input" id="nom" <?php if(isset($_POST['lastname'])) { echo "value='".htmlspecialchars($_POST['lastname'])."'"; } ?> >
         </div>
 
         <div class="form__line">
             <label for="pseudo" class="form__line__label">Nom d'utilisateur * : </label>
-            <input type="text" name="pseudo" placeholder="Nom d'utilisateur" class="form__line__input" id="pseudo" <?php if(isset($_POST['pseudo'])) { echo "value='".$_POST['pseudo']."'"; } ?> required>
+            <input type="text" name="pseudo" placeholder="Nom d'utilisateur" class="form__line__input" id="pseudo" <?php if(isset($_POST['pseudo'])) { echo "value='".htmlspecialchars($_POST['pseudo'])."'"; } ?> required>
         </div>
 
         <div class="form__line">
             <label for="email" class="form__line__label">Email * : </label>
-            <input type="email" name="email" placeholder="toto@toto.fr" class="form__line__input" id="email" required>
+            <input type="email" name="email" placeholder="toto@toto.fr" class="form__line__input" id="email" <?php if(isset($_POST['email'])) { echo "value='".htmlspecialchars($_POST['email'])."'"; } ?> required>
         </div>
 
 
