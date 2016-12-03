@@ -46,7 +46,7 @@ foreach ($data as $key => $value) {
                         <div class="topic__infos topic__infos--update">Mis à jour le <?php echo $date_updated; ?> à <?php echo $time_updated; ?> | Par <?php echo $pseudo; ?></div>
                     <?php } ?>
                 </div>
-                <?php if(isset($_SESSION['id_user']) && $id_author == $_SESSION['id_user']) { ?>
+                <?php if(isset($_SESSION['user']['id_user']) && $id_author == $_SESSION['user']['id_user']) { ?>
                     <a href="?action=update&id_billet=<?php echo $id_billet; ?>" class="topic__edit"><img src="images/edit.svg" class="icon" alt=""></a>
                 <?php } ?>
             </div>

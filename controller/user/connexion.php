@@ -25,7 +25,7 @@ function loginAction() {
             Veuillez valider le compte avec le mail reçu sur votre boîte de réception.';
             $template = 'login';
         } else{
-            $_SESSION['id_user'] = $user['id_user'];
+            $_SESSION['user'] = $user;
             $template = 'profile';
         }
     }
