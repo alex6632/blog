@@ -14,7 +14,7 @@
             <?php if(isset($_SESSION['id_user'])) { ?>
 
                 <a href="?action=deconnexion&controler=user" class="inline-b link link--bg">Deconnexion</a>
-                <a href="?action=edit" class="inline-b link link--rv"><img src="images/edit.svg" class="icon" alt="">Écrire un article !</a>
+                <a href="?action=create" class="inline-b link link--rv"><img src="images/write.svg" class="icon" alt="">Écrire un article !</a>
 
             <?php } else { ?>
 
