@@ -5,7 +5,7 @@
 </div>
 
 <div class="container">
-    <form method="post" action="index.php?action=createTopic&controler=user" class="form form--lg">
+    <form method="post" action="index.php?action=createTopic&controler=topic" class="form form--lg">
 
         <?php
         if(isset($errors)) {

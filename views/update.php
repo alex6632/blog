@@ -19,7 +19,7 @@
     ?>
 
 
-    <form method="post" action="index.php?action=updateTopic&controler=user&id_billet=<?php echo $id_billet; ?>" class="form form--lg">
+    <form method="post" action="index.php?action=updateTopic&controler=topic&id_billet=<?php echo $id_billet; ?>" class="form form--lg">
 
         <?php
         if(isset($errors)) {
