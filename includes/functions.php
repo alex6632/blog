@@ -31,6 +31,17 @@ function escape($data) {
 }
 
 /*
+ * This function permits to get the credentials send by the post form at signUp page
+ */
+function getPost() {
+    $credentials = [];
+    foreach ($_POST as $k => $v) {
+        $credentials[$k] = $v;
+    }
+    return ($credentials);
+}
+
+/*
  * This function permits to send mail to the admin
  * to ask a user to become blogger (from signUp or Profile Page)
  */
