@@ -5,6 +5,9 @@ function insertTopic($credentials) {
     $content = addslashes(nl2br($credentials['content']));
     $query = "INSERT INTO billet(title, content, created, updated, id_user, id_category) VALUES('".$credentials['title']."', '".$content."', '".date("Y-m-d H:i:s")."', '".date("Y-m-d H:i:s")."', ".$_SESSION['id_user'].", ".$credentials['category'].")";
     execute_query($query);
+    $query2 = "SELECT id_billet FROM billet WHERE id_billet = LAST_INSERT_ID();";
+    $last_id_topic = execute_query($query2);
+    return $last_id_topic;
 }
 
 function updateTopic($credentials, $id_billet) {

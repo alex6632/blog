@@ -17,7 +17,7 @@ function updateTopicAction() {
         $template = 'topic';
 
     } else {
-        $template = 'edit';
+        $template = 'update';
     }
 }
 

@@ -11,12 +11,13 @@ function createTopicAction() {
     $errors = checkErrors($credentials);
 
     if(empty($errors)) {
-        insertTopic($credentials);
-
+        $last_id_topic = insertTopic($credentials);
+        foreach ($last_id_topic as $key => $value) {
+            $_SESSION['last_id_topic'] = $value['id_billet'];
+        }
         $template = 'topic';
-
     } else {
-        $template = 'edit';
+        $template = 'create';
     }
 }
 

@@ -4,8 +4,11 @@ require_once 'model/category.php';
 require_once 'model/topic.php';
 require_once 'model/user.php';
 
-
-$id_billet = $_GET['id_billet'];
+if(!empty($_GET['id_billet'])) {
+    $id_billet = $_GET['id_billet'];
+} else {
+    $id_billet = $_SESSION['last_id_topic'];
+}
 
 $data = selectInfoBillet($id_billet);
 foreach ($data as $key => $value) {

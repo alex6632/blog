@@ -44,7 +44,7 @@
         <div class="form__line">
             <label for="content" class="form__line__label form__line__label--top">Contenu *</label>
             <div class="my-tiny-container">
-                <textarea name="content" cols="1" rows="1" placeholder="Entrez ici le contenu de votre article !" id="content" class="form__line__textarea" required><?php if(isset($_POST['content'])) { echo "value='".$_POST['content']."'"; } ?></textarea>
+                <textarea name="content" cols="1" rows="1" placeholder="Entrez ici le contenu de votre article !" id="content" class="form__line__textarea"><?php if(isset($_POST['content'])) { echo "value='".$_POST['content']."'"; } ?></textarea>
             </div>
         </div>
 
