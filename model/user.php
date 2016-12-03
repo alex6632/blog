@@ -29,7 +29,7 @@ function insertUserModel($credentials) {
 }
 
 function selectInfoUser() {
-    $query = "SELECT * FROM users WHERE id_user = ".$_SESSION['id_user'];
+    $query = "SELECT * FROM users WHERE id_user = ".$_SESSION['user']['id_user'];
     $data = execute_query($query);
     return $data;
 }
