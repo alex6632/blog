@@ -71,15 +71,4 @@ function checkPasswd($s, $s1) {
     }
     return (0);
 }
-
-/*
- * This function permits to get the credentials send by the post form at signUp page
- */
-function getPost() {
-    $credentials = [];
-    foreach ($_POST as $k => $v) {
-        $credentials[$k] = $v;
-    }
-    return ($credentials);
-}
 ?>
