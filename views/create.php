@@ -5,7 +5,7 @@
 </div>
 
 <div class="container">
-    <form method="post" action="index.php?action=edit&controler=user" class="form form--lg">
+    <form method="post" action="index.php?action=createTopic&controler=user" class="form form--lg">
 
         <?php
         if(isset($errors)) {
@@ -38,17 +38,17 @@
 
         <div class="form__line">
             <label for="title" class="form__line__label">Titre *</label>
-            <input type="input" name="title" placeholder="Mon super article !" id="title" class="form__line__input">
+            <input type="input" name="title" placeholder="Mon super article !" id="title" class="form__line__input" <?php if(isset($_POST['title'])) { echo "value='".$_POST['title']."'"; } ?> required >
         </div>
 
         <div class="form__line">
             <label for="content" class="form__line__label form__line__label--top">Contenu *</label>
             <div class="my-tiny-container">
-                <textarea name="content" cols="1" rows="1" placeholder="Entrez ici le contenu de votre article !" id="content" class="form__line__textarea"></textarea>
+                <textarea name="content" cols="1" rows="1" placeholder="Entrez ici le contenu de votre article !" id="content" class="form__line__textarea" required><?php if(isset($_POST['content'])) { echo "value='".$_POST['content']."'"; } ?></textarea>
             </div>
         </div>
 
-        <input type="submit" value="Créer cet article" name="createTopic" class="button">
+        <input type="submit" value="Créer cet article" class="button">
 
         <p class="form__info">* Ces champs sont obligatoire pour créer un nouveau article.</p>
     </form>

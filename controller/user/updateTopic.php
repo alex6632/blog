@@ -2,16 +2,17 @@
 
 require_once 'model/topic.php';
 
-// TODO : Comme l'inscription, vérifier ce que l'utilisateur a remplie puis faire l'insertion en base via le model...
+// TODO : Comme l'inscription, vérifier ce que l'utilisateur a remplie puis faire l'update en base via le model...
 
-function editAction() {
+function updateTopicAction() {
     global $template;
 
     $credentials = getPost();
     $errors = checkErrors($credentials);
+    $id_billet = $_GET['id_billet'];
 
     if(empty($errors)) {
-        insertTopic($credentials);
+        updateTopic($credentials, $id_billet);
 
         $template = 'topic';
 
@@ -38,4 +39,4 @@ function checkErrors($credentials) {
 }
 
 
-editAction();
+updateTopicAction();
