@@ -15,6 +15,13 @@
 
                 <a href="?action=deconnexion&controler=user" class="inline-b link link--bg">Deconnexion</a>
                 <a href="?action=create" class="inline-b link link--rv"><img src="images/write.svg" class="icon" alt="">Écrire un article !</a>
+                <div class="hello">
+                    <div class="hello__avatar"></div>
+                    <div class="hello__right">
+                        <div class="hello__right__text">Bonjour <?php echo $_SESSION['user']['name']; ?></div>
+                        <a href="?action=profile" class="hello__right__link">Afficher le profil</a>
+                    </div>
+                </div>
 
             <?php } else { ?>
 

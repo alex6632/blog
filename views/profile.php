@@ -6,6 +6,8 @@
 
 <div class="container">
     <?php
+        require_once 'model/user.php';
+
         $data = selectInfoUser();
 
         foreach ($data as $key => $value) {
@@ -15,20 +17,31 @@
             $pseudo = $value['pseudo'];
             $email = $value['email'];
             $created = $value['created'];
+            $updated = $value['updated'];
 
-            echo '<div class="profile__title">Bonjour '.$name.' '.$lastname.' !</div>';
+            ?>
+            <div class="profile">
+                <div class="profile__avatar">
+                    <img src="images/camera.svg" alt="camera" class="profile__avatar__inner">
+                </div>
+                <div class="profile__title"><span>Bonjour</span><i><?php echo $name.' '.$lastname; ?></i> !</div>
 
-            echo '<div class="profile__infos">Mes informations</div>';
+                <h2 class="profile__infos">Mes informations</h2>
 
-            echo '<ul>';
-                echo '<li><span>Compte crée le : </span>'.$created.'</li>';
-                echo '<li><span>Votre prénom : </span>'.$name.'</li>';
-                echo '<li><span>Votre nom : </span>'.$lastname.'</li>';
-                echo '<li><span>Votre nom d\'utilisateur : </span>'.$pseudo.'</li>';
-                echo '<li><span>Votre email : </span>'.$email.'</li>';
-            echo '</ul>';
+                <ul class="profile__list">
+                    <li class="profile__list__item"><span class="profile__list__item__span">Votre prénom</span><span class="profile__list__item__rep"><?php echo $name; ?></span></li>
+                    <li class="profile__list__item"><span class="profile__list__item__span">Votre nom</span><span class="profile__list__item__rep"><?php echo $lastname; ?></span></li>
+                    <li class="profile__list__item"><span class="profile__list__item__span">Votre nom d'utilisateur</span><span class="profile__list__item__rep"><?php echo $pseudo; ?></span></li>
+                    <li class="profile__list__item"><span class="profile__list__item__span">Votre email</span><span class="profile__list__item__rep"><?php echo $email; ?></span></li>
+                </ul>
+                <ul class="profile__list">
+                    <li class="profile__list__item"><span class="profile__list__item__span">Compte crée le</span><span class="profile__list__item__rep"><?php echo $created; ?></span></li>
+                    <li class="profile__list__item"><span class="profile__list__item__span">Dernière mise à jour le</span><span class="profile__list__item__rep"><?php echo $updated; ?></span></li>
+                </ul>
+                <a href="?action=updateProfile" class="inline-b link link--bg">Modifier mes informations personnelles</a>
+            </div>
+            <?php
 
-            echo '<a href="?action=updateProfile&controler=user">Modifier mes informations personnelles</a>';
         }
     ?>
 </div>
