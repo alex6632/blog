@@ -34,6 +34,9 @@
 
   &__infos {
     margin-top: 25px;
+    padding-top: 15px;
+    border-top: solid 4px color('grey', grey2);
+    margin-bottom: 15px;
   }
 
   &__list {
@@ -69,5 +72,73 @@
 
   .link {
     margin-top: 30px;
+  }
+
+  .article-listing {
+    width: 100%;
+
+    td, th {
+      height: 40px;
+      text-align: center;
+    }
+
+    tr {
+      transition: background-color $time $ease;
+
+      &:first-child {
+        background-color: color('grey');
+      }
+
+      &:hover {
+        background-color: color('grey');
+        transition: background-color $time $ease;
+      }
+    }
+
+    &__title {
+      max-width: 566px;
+      overflow: hidden;
+
+      a {
+        color: color(foreground);
+      }
+    }
+
+    &__edit,
+    &__delete,
+    &__title {
+      cursor: pointer;
+    }
+
+    &__edit,
+    &__delete {
+      width: 60px;
+
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding-top: 4px;
+      }
+
+      img {
+        max-height: 30px;
+      }
+    }
+
+    &__num {
+      width: 100px;
+    }
+
+    &__date {
+      width: 200px;
+    }
+
+    &__delete {
+      background-color: color(secondary, error);
+    }
+    &__edit {
+      background-color: color(secondary);
+    }
   }
 }

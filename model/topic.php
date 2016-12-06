@@ -30,3 +30,10 @@ function selectInfoLastBillet() {
     $data = execute_query($query);
     return $data;
 }
+
+function selectInfoBilletsOfUser() {
+
+    $query = "SELECT * FROM billet WHERE id_user = ".$_SESSION['user']['id_user'];
+    $data = execute_query($query);
+    return $data;
+}
