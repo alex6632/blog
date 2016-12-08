@@ -7,8 +7,8 @@ require_once 'model/topic.php';
 function updateTopicAction() {
     global $template;
 
-    $credentials = getPost();
-    $errors = checkErrors($credentials);
+    $topic = getPost();
+    $errors = checkErrors($topic);
     $id_billet = $_GET['id_billet'];
 
     if(empty($errors)) {
@@ -21,19 +21,17 @@ function updateTopicAction() {
     }
 }
 
-function checkErrors($credentials) {
-
+function checkErrors($topic) {
     global $errors;
     $errors = [];
-    // TODO : Faire des vraies checks par fonction
 
-    if( empty($credentials['title']) ) {
+    if ()
+    if (empty($topic['title']) ) {
         $errors['title'] = "Le titre est obligatoire";
     }
-    if( empty($credentials['content']) ) {
+    if (empty($topic['content']) ) {
         $errors['content'] = "Le contenu est obligatoire";
     }
-    // TODO : les autres verifs
 
     return $errors;
 }

@@ -42,9 +42,9 @@ foreach ($data as $key => $value) {
                     <div class="topic__img__cat"><?php echo $name_cat; ?></div>
                 </div>
                 <div class="container">
-                    <div class="topic__title"><?php echo $title; ?></div>
-                    <div class="topic__infos">Rédigé le <?php echo $date_created; ?> à <?php echo $time_created; ?> | Par <?php echo $pseudo; ?></div>
-                    <div class="topic__content"><?php echo $content; ?></div>
+                    <div class="topic__title"><?php echo htmlspecialchars($title); ?></div>
+                    <div class="topic__infos">Rédigé le <?php echo $date_created; ?> à <?php echo $time_created; ?> | Par <?php echo htmlspecialchars($pseudo); ?></div>
+                    <div class="topic__content"><?php echo htmlspecialchars($content); ?></div>
                     <?php if($created != $updated) { ?>
                         <div class="topic__infos topic__infos--update">Mis à jour le <?php echo $date_updated; ?> à <?php echo $time_updated; ?> | Par <?php echo $pseudo; ?></div>
                     <?php } ?>
