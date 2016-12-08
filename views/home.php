@@ -18,6 +18,9 @@
                 $id_author = $value['id_user'];
                 $id_category = $value['id_category'];
 
+                $date_created = substr($created, 8, 2).'-'.substr($created, 5, 2).'-'.substr($created, 0, 4);
+                $time_created = substr($created, 10, 9);
+
                 $dataUser = selectAuthorOfTopic($id_author);
                 foreach ($dataUser as $key2 => $value2) {
                     $pseudo = $value2['pseudo'];
@@ -29,12 +32,12 @@
                         $img_cat = $value3['image'];
 
                         echo '<li class="list__item">';
-                            echo '<a class="list__item__img" href="?action=topic&id_billet=' . $id_billet . '"><img src="images/'.$img_cat.'" alt="Image de la catégorie"></a>';
+                            echo '<a class="list__item__img" href="?action=topic&id_billet=' . $id_billet . '"><img src="images/'.$img_cat.'-mini.jpg" alt="Image de la catégorie"></a>';
                             echo '<div class="list__item__cat">'.$name_cat.'</div>';
 
                         echo '<a href="?action=topic&id_billet=' . $id_billet . '">';
                             echo '<div class="list__item__title">'.$title.'</div>';
-                            echo "<div class=\"list__item__footer\">Le ".$created." | Par ".$pseudo."</div>";
+                            echo "<div class=\"list__item__footer\">Rédigé le ".$date_created." à ".$time_created." | Par ".$pseudo."</div>";
                         echo '</a>';
 
                         echo '</li>';

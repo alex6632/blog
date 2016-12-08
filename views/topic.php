@@ -38,7 +38,7 @@ foreach ($data as $key => $value) {
             ?>
             <div class="topic">
                 <div class="topic__img">
-                    <img src="images/<?php echo $img_cat; ?>" alt="">
+                    <img src="images/<?php echo $img_cat; ?>.jpg" alt="">
                     <div class="topic__img__cat"><?php echo $name_cat; ?></div>
                 </div>
                 <div class="container">

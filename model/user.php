@@ -39,3 +39,8 @@ function selectAuthorOfTopic($id_author) {
     $data = execute_query($query);
     return $data;
 }
+
+function updateUser($credentials) {
+    $query = "UPDATE users SET pseudo = '".$credentials['pseudo']."', name = '".$credentials['name']."', lastname = '".$credentials['lastname']."', avatar = '".$credentials['avatar']."', updated = '".date("Y-m-d H:i:s")."' WHERE id_user=".$_SESSION['user']['id_user'];
+    execute_query($query);
+}
