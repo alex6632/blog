@@ -37,3 +37,10 @@ function selectInfoBilletsOfUser() {
     $data = execute_query($query);
     return $data;
 }
+
+function deleteTopic($id_billet) {
+
+    $query = "DELETE FROM billet WHERE id_billet = ".$id_billet;
+    $data = execute_query($query);
+    return $data;
+}

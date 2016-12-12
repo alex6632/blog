@@ -1,0 +1,37 @@
+<?php
+
+function insertComment($credentials) {
+
+    $content = addslashes(nl2br($credentials['content']));
+    $query = "INSERT INTO billet(title, content, created, updated, id_user, id_category) VALUES('".$credentials['title']."', '".$content."', '".date("Y-m-d H:i:s")."', '".date("Y-m-d H:i:s")."', ".$_SESSION['id_user'].", ".$credentials['category'].")";
+    execute_query($query);
+}
+
+function updateComment($credentials, $id_billet) {
+
+    $content = addslashes(nl2br($credentials['content']));
+    $query = "UPDATE billet SET title = '".$credentials['title']."', content = '".$content."', updated = '".date("Y-m-d H:i:s")."', id_category = ".$credentials['category']." WHERE id_billet='".$id_billet."'";
+    execute_query($query);
+}
+
+function selectInfoCommentOfBillet($id_billet) {
+
+    $query = "SELECT * FROM commentaire WHERE id_billet = ".$id_billet;
+    $data = execute_query($query);
+    return $data;
+}
+
+function selectNbOfCommentByTopic($id_billet) {
+
+    $query = "SELECT * FROM commentaire WHERE id_billet = ".$id_billet;
+    $results = my_fetch_all($query);
+    $data = count($results);
+    return $data;
+}
+
+function deleteComment($id_billet) {
+
+    $query = "DELETE FROM commentaire WHERE id_user = ".$id_user;
+    $data = execute_query($query);
+    return $data;
+}

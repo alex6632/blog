@@ -26,7 +26,7 @@
                 <div class="profile__avatar">
                     <img src="images/camera.svg" alt="camera" class="profile__avatar__inner">
                 </div>
-                <div class="profile__title"><span>Bonjour</span><i><?php echo $name.' '.$lastname; ?></i> !</div>
+                <div class="profile__title"><span>Bonjour</span><i><?php echo $name; ?></i> !</div>
 
                 <h2 class="profile__infos">Mes informations</h2>
 
@@ -75,7 +75,7 @@
                             <td class="article-listing__date"><?php echo 'Le '.$date_created.' à '.$time_created; ?></td>
                             <td class="article-listing__date"><?php echo 'Le '.$date_updated.' à '.$time_updated; ?></td>
                             <td class="article-listing__edit"><a href="?action=update&id_billet=<?php echo $id_billet; ?>"><img src="images/edit.svg" class="icon" alt=""></a></td>
-                            <td class="article-listing__delete"><a href="?action=delete&id_billet=<?php echo $id_billet; ?>"><img src="images/delete.svg" class="icon" alt=""></a></td>
+                            <td class="article-listing__delete"><a href="?action=deleteTopic&controler=topic&id_billet=<?php echo $id_billet; ?>"><img src="images/delete.svg" class="icon" alt=""></a></td>
                         </tr>
                         <?php $i++; ?>
                         <?php } ?>
