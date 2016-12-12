@@ -69,6 +69,7 @@ foreach ($data as $key => $value) {
                         $dataComment = selectInfoCommentOfBillet($id_billet);
                         foreach ($dataComment as $key4 => $value4) {
 
+                            $idCom = $value4['id_comment'];
                             $contentCom = $value4['content'];
                             $createdCom = $value4['created'];
                             $updatedCom = $value4['updated'];
@@ -84,22 +85,28 @@ foreach ($data as $key => $value) {
                                 $time_updated_com = substr($updatedCom, 10, 9);
 
                                 ?>
-                                <div class="comment">
-                                    <div class="comment__avatar">
-                                        <div class="comment__avatar__circle">
-                                            <img src="" alt="">
+                                <div class="container">
+                                    <div class="comment">
+                                        <div class="comment__avatar">
+                                            <div class="comment__avatar__circle">
+                                                <img src="" alt="">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="comment__right">
-                                        <span class="comment__right__name"><?php echo $authorCom; ?></span>
-                                        <span
-                                            class="comment__right__date"><?php echo 'le ' . $date_created_com . ' à ' . $time_created_com; ?></span>
-                                        <div class="comment__right__content"><?php echo $contentCom; ?></div>
-                                        <?php if ($createdCom != $updatedCom) { ?>
-                                            <div class="comment__right__updated">Mis à jour
-                                                le <?php echo $date_updated_com; ?>
-                                                à <?php echo $time_updated_com; ?></div>
-                                        <?php } ?>
+                                        <div class="comment__right">
+                                            <span class="comment__right__name"><?php echo $authorCom; ?></span>
+                                            <span class="comment__right__date">
+                                                <?php echo 'le ' . $date_created_com . ' à ' . $time_created_com.' - '; ?>
+                                                <a href="?action=editComment&controler=comment&id_comment=<?php echo $idCom; ?>">Modifier</a>
+                                                <?php echo ' - '; ?>
+                                                <a href="?action=deleteComment&controler=comment&id_comment=<?php echo $idCom; ?>">Supprimer</a>
+                                            </span>
+                                            <div class="comment__right__content"><?php echo $contentCom; ?></div>
+                                            <?php if ($createdCom != $updatedCom) { ?>
+                                                <div class="comment__right__updated">Mis à jour
+                                                    le <?php echo $date_updated_com; ?>
+                                                    à <?php echo $time_updated_com; ?></div>
+                                            <?php } ?>
+                                        </div>
                                     </div>
                                 </div>
 <?php

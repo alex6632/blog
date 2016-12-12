@@ -7,5 +7,71 @@
 }
 
 .comment {
+  background-color: color('grey');
+  border: 1px solid color('grey', grey2);
+  border-radius: $radius;
+  margin-bottom: 30px;
+  padding: 30px 30px 30px 10px;
 
+  &__avatar {
+    display: inline-block;
+    vertical-align: top;
+    width: 60px;
+
+    &__circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      background-color: color('grey', grey2);
+      border: solid 2px color(background);
+      overflow: hidden;
+      margin: auto;
+
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  &__right {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 75px);
+    margin-left: 10px;
+
+    &__name {
+      font-weight: 700;
+      margin-right: 5px;
+    }
+
+    &__date,
+    &__updated {
+      color: color('grey', grey3);
+      font-weight: 300;
+      font-size: 12px;
+
+      a {
+        text-decoration: underline;
+        color: color('grey', grey3);
+      }
+    }
+
+    &__name,
+    &__date {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    &__content {
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 400;
+      color: color('grey', grey4);
+      margin-top: 20px;
+    }
+
+    &__updated {
+
+    }
+  }
 }
