@@ -25,10 +25,10 @@ function checkErrorsCreateTopic($credentials) {
     $errors = [];
 
     if (!isset($_SESSION['user']['id_user']) || empty($_SESSION['user']['id_user'])) {
-        $errors['user'] = "Vous n\'êtes pas authentifiés, veuillez vous connecter";
+        $errors['user'] = "Vous n'êtes pas authentifiés, veuillez vous connecter";
     }
     if ($_SESSION['user']['type'] >= 0) {
-        $errors['user'] = "Vous n\'avez pas les droits pour écrire un article";
+        $errors['user'] = "Vous n'avez pas les droits pour écrire un article";
     }
     if( empty($credentials['title']) ) {
         $errors['title'] = "Le titre est obligatoire";
