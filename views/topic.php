@@ -60,7 +60,7 @@ foreach ($data as $key => $value) {
                         <div class="container">
                             <h2>Commentaires (<?php echo $nbOfComments; ?>)</h2>
                             <form action="index.php?action=createComment&controler=comment&id_billet=<?php echo $id_billet; ?>" method="post" class="topic__form">
-                                <textarea name="" id="" cols="1" rows="1" placeholder="Votre commentaire ici..."></textarea>
+                                <textarea name="content" id="" cols="1" rows="1" placeholder="Votre commentaire ici..."></textarea>
                                 <input type="submit" value="Envoyer" class="button">
                             </form>
                         </div>
@@ -73,33 +73,42 @@ foreach ($data as $key => $value) {
                             $createdCom = $value4['created'];
                             $updatedCom = $value4['updated'];
                             $id_user = $value4['id_user'];
-                            $authorCom = selectAuthorOfComment($id_user);
+                            $dataAuthor = selectAuthorOfComment($id_user);
+                            foreach ($dataAuthor as $key5 => $value5) {
+                                $authorCom = $value5['pseudo'];
 
-                            $date_created_com = substr($createdCom, 8, 2).'-'.substr($createdCom, 5, 2).'-'.substr($createdCom, 0, 4);
-                            $time_created_com = substr($createdCom, 10, 9);
-                            $date_updated_com = substr($updatedCom, 8, 2).'-'.substr($updatedCom, 5, 2).'-'.substr($updatedCom, 0, 4);
-                            $time_updated_com = substr($updatedCom, 10, 9);
 
-                        ?>
-                        <div class="comment">
-                            <div class="comment__avatar">
-                                <div class="comment__avatar__circle">
-                                    <img src="" alt="">
+                                $date_created_com = substr($createdCom, 8, 2) . '-' . substr($createdCom, 5, 2) . '-' . substr($createdCom, 0, 4);
+                                $time_created_com = substr($createdCom, 10, 9);
+                                $date_updated_com = substr($updatedCom, 8, 2) . '-' . substr($updatedCom, 5, 2) . '-' . substr($updatedCom, 0, 4);
+                                $time_updated_com = substr($updatedCom, 10, 9);
+
+                                ?>
+                                <div class="comment">
+                                    <div class="comment__avatar">
+                                        <div class="comment__avatar__circle">
+                                            <img src="" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="comment__right">
+                                        <span class="comment__right__name"><?php echo $authorCom; ?></span>
+                                        <span
+                                            class="comment__right__date"><?php echo 'le ' . $date_created_com . ' à ' . $time_created_com; ?></span>
+                                        <div class="comment__right__content"><?php echo $contentCom; ?></div>
+                                        <?php if ($createdCom != $updatedCom) { ?>
+                                            <div class="comment__right__updated">Mis à jour
+                                                le <?php echo $date_updated_com; ?>
+                                                à <?php echo $time_updated_com; ?></div>
+                                        <?php } ?>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="comment__right">
-                                <span class="comment__right__name"><?php echo $authorCom; ?></span>
-                                <span class="comment__right__date"><?php echo 'le '.$date_created_com.' à '.$time_created_com; ?></span>
-                                <div class="comment__right__content"><?php echo $contentCom; ?></div>
-                                <?php if($created != $updated) { ?>
-                                    <div class="comment__right__updated">Mis à jour le <?php echo $date_updated_com; ?> à <?php echo $time_updated_com; ?></div>
-                                <?php } ?>
-                            </div>
-                        </div>
+<?php
+                            }
+                        }
+?>
                     </div>
                 </div>
-            <?php
-                    }
+<?php
         }
     }
 }

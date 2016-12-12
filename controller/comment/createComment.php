@@ -8,13 +8,12 @@ function createCommentAction() {
     global $template;
 
     $credentials = getPost();
+    $id_billet = $_GET['id_billet'];
     $errors = checkErrors($credentials);
 
     if(empty($errors)) {
-        insertComment($credentials);
-
+        insertComment($credentials, $id_billet);
         $template = 'topic';
-
     } else {
         $template = 'topic';
     }
@@ -35,4 +34,4 @@ function checkErrors($credentials) {
 }
 
 
-createTopicAction();
+createCommentAction();

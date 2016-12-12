@@ -1,9 +1,9 @@
 <?php
 
-function insertComment($credentials) {
+function insertComment($credentials, $id_billet) {
 
     $content = addslashes(nl2br($credentials['content']));
-    $query = "INSERT INTO billet(title, content, created, updated, id_user, id_category) VALUES('".$credentials['title']."', '".$content."', '".date("Y-m-d H:i:s")."', '".date("Y-m-d H:i:s")."', ".$_SESSION['id_user'].", ".$credentials['category'].")";
+    $query = "INSERT INTO commentaire(content, created, updated, id_user, id_billet) VALUES('".$content."', '".date("Y-m-d H:i:s")."', '".date("Y-m-d H:i:s")."', ".$_SESSION['user']['id_user'].", ".$id_billet.")";
     execute_query($query);
 }
 
@@ -29,7 +29,7 @@ function selectNbOfCommentByTopic($id_billet) {
     return $data;
 }
 
-function deleteComment($id_billet) {
+function deleteComment($id_user) {
 
     $query = "DELETE FROM commentaire WHERE id_user = ".$id_user;
     $data = execute_query($query);
