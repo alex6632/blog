@@ -50,3 +50,8 @@ function selectAuthorOfComment($id_user) {
     $data = execute_query($query);
     return $data;
 }
+
+function validationUserAction($email) {
+    $query = "UPDATE users SET account_check = 1 WHERE email=".$email;
+    execute_query($query);
+}

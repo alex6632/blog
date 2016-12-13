@@ -14,7 +14,11 @@
             <?php if(isset($_SESSION['user']['id_user'])) { ?>
 
                 <a href="?action=deconnexion&controler=user" class="inline-b link link--bg">Deconnexion</a>
+
+                <?php if(isset($_SESSION['user']['type']) != 0) { ?>
                 <a href="?action=create" class="inline-b link link--rv"><img src="images/write.svg" class="icon" alt="">Écrire un article !</a>
+                <?php } ?>
+
                 <div class="hello">
                     <div class="hello__avatar"></div>
                     <div class="hello__right">

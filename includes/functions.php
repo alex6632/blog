@@ -67,7 +67,7 @@ function sendMailAskBlogger($credentials) {
 function sendMailSignUp($credentials) {
     $message = '<body style="margin: 0; padding: 0;">
         <h2 style="font-family: sans-serif; text-align: center; margin: 0; padding: 0;">Merci pour votre inscription '.$credentials['email'].'sur Wesh Blog ! </h2>
-        <p style="font-family: sans-serif; ">Pour valider votre inscription, veuillez suivre ce lien : <a>https://google.com</a></p>
+        <p style="font-family: sans-serif; ">Pour valider votre inscription, veuillez suivre ce lien : <a href="http://alexandre-simonin.fr?action=validation&controler=user&email='.$credentials['email'].'">Valider mon compte</a></p>
       </body>';
 
     $subject = "Valider votre inscription sur Wesh Blog";
