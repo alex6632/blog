@@ -26,7 +26,7 @@ function selectInfoBillet($id_billet) {
 
 function selectInfoLastBillet() {
 
-    $query = "SELECT * FROM billet LIMIT 8";
+    $query = "SELECT * FROM billet ORDER BY updated DESC LIMIT 8";
     $data = execute_query($query);
     return $data;
 }

@@ -7,16 +7,23 @@ function insertComment($credentials, $id_billet) {
     execute_query($query);
 }
 
-function updateComment($credentials, $id_billet) {
+function updateComment($credentials, $id_comment) {
 
     $content = addslashes(nl2br($credentials['content']));
-    $query = "UPDATE billet SET title = '".$credentials['title']."', content = '".$content."', updated = '".date("Y-m-d H:i:s")."', id_category = ".$credentials['category']." WHERE id_billet='".$id_billet."'";
+    $query = "UPDATE commentaire SET content = '".$content."', updated = '".date("Y-m-d H:i:s")."' WHERE id_comment=".$id_comment;
     execute_query($query);
 }
 
-function selectInfoCommentOfBillet($id_billet) {
+function selectInfoCommentOfBilletWithOrder($id_billet) {
 
-    $query = "SELECT * FROM commentaire WHERE id_billet = ".$id_billet;
+    $query = "SELECT * FROM commentaire WHERE id_billet = ".$id_billet." ORDER BY created DESC";
+    $data = execute_query($query);
+    return $data;
+}
+
+function selectInfoComment($id_comment) {
+
+    $query = "SELECT * FROM commentaire WHERE id_comment = ".$id_comment;
     $data = execute_query($query);
     return $data;
 }
@@ -29,9 +36,8 @@ function selectNbOfCommentByTopic($id_billet) {
     return $data;
 }
 
-function deleteComment($id_user) {
+function deleteComment($idCom) {
 
-    $query = "DELETE FROM commentaire WHERE id_user = ".$id_user;
-    $data = execute_query($query);
-    return $data;
+    $query = "DELETE FROM commentaire WHERE id_comment = ".$idCom;
+    execute_query($query);
 }

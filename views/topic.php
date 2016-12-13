@@ -47,7 +47,7 @@ foreach ($data as $key => $value) {
                     <div class="container">
                         <div class="topic__title"><?php echo htmlspecialchars($title); ?></div>
                         <div class="topic__infos">Rédigé le <?php echo $date_created; ?> à <?php echo $time_created; ?> | Par <?php echo htmlspecialchars($pseudo); ?></div>
-                        <div class="topic__content"><?php echo htmlspecialchars($content); ?></div>
+                        <div class="topic__content"><?php echo $content; ?></div>
                         <?php if($created != $updated) { ?>
                             <div class="topic__infos topic__infos--update">Mis à jour le <?php echo $date_updated; ?> à <?php echo $time_updated; ?> | Par <?php echo htmlspecialchars($pseudo); ?></div>
                         <?php } ?>
@@ -66,7 +66,7 @@ foreach ($data as $key => $value) {
                         </div>
                         <?php
 
-                        $dataComment = selectInfoCommentOfBillet($id_billet);
+                        $dataComment = selectInfoCommentOfBilletWithOrder($id_billet);
                         foreach ($dataComment as $key4 => $value4) {
 
                             $idCom = $value4['id_comment'];
@@ -96,7 +96,7 @@ foreach ($data as $key => $value) {
                                             <span class="comment__right__name"><?php echo $authorCom; ?></span>
                                             <span class="comment__right__date">
                                                 <?php echo 'le ' . $date_created_com . ' à ' . $time_created_com.' - '; ?>
-                                                <a href="?action=editComment&controler=comment&id_comment=<?php echo $idCom; ?>">Modifier</a>
+                                                <a href="?action=updateComment&controler=comment&id_comment=<?php echo $idCom; ?>&id_billet=<?php echo $id_billet; ?>">Modifier</a>
                                                 <?php echo ' - '; ?>
                                                 <a href="?action=deleteComment&controler=comment&id_comment=<?php echo $idCom; ?>">Supprimer</a>
                                             </span>

@@ -12,7 +12,7 @@ function updateTopicAction() {
     $id_billet = $_GET['id_billet'];
 
     if(empty($errors)) {
-        updateTopic($credentials, $id_billet);
+        updateTopic($topic, $id_billet);
 
         $template = 'topic';
 
@@ -25,7 +25,6 @@ function checkErrors($topic) {
     global $errors;
     $errors = [];
 
-    if ()
     if (empty($topic['title']) ) {
         $errors['title'] = "Le titre est obligatoire";
     }
