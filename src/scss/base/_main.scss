@@ -9,6 +9,17 @@
 .error {
   margin: 0 0 30px 0;
 
+  &--big {
+    margin: 30px 0;
+    color: color(secondary, error);
+    font-weight: 700;
+    text-align: center;
+
+    a {
+      color: color(secondary);
+    }
+  }
+
   &__list {
 
     &__item {

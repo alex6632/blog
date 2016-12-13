@@ -95,10 +95,13 @@ foreach ($data as $key => $value) {
                                         <div class="comment__right">
                                             <span class="comment__right__name"><?php echo $authorCom; ?></span>
                                             <span class="comment__right__date">
-                                                <?php echo 'le ' . $date_created_com . ' à ' . $time_created_com.' - '; ?>
-                                                <a href="?action=updateComment&controler=comment&id_comment=<?php echo $idCom; ?>&id_billet=<?php echo $id_billet; ?>">Modifier</a>
-                                                <?php echo ' - '; ?>
-                                                <a href="?action=deleteComment&controler=comment&id_comment=<?php echo $idCom; ?>">Supprimer</a>
+                                                <?php echo 'le ' . $date_created_com . ' à ' . $time_created_com; ?>
+                                                <?php if(isset($_SESSION['user']['id_user']) && $id_user == $_SESSION['user']['id_user']) { ?>
+                                                    <?php echo ' - '; ?>
+                                                    <a href="?action=updateComment&controler=comment&id_comment=<?php echo $idCom; ?>&id_billet=<?php echo $id_billet; ?>">Modifier</a>
+                                                    <?php echo ' - '; ?>
+                                                    <a href="?action=deleteComment&controler=comment&id_comment=<?php echo $idCom; ?>&id_billet=<?php echo $id_billet; ?>">Supprimer</a>
+                                                <?php } ?>
                                             </span>
                                             <div class="comment__right__content"><?php echo $contentCom; ?></div>
                                             <?php if ($createdCom != $updatedCom) { ?>

@@ -5,6 +5,7 @@
 </div>
 
 <div class="container">
+    <?php if(isset($_SESSION['user']['type']) && $_SESSION['user']['type'] != 0) { ?>
     <form method="post" action="index.php?action=createTopic&controler=topic" class="form form--lg">
 
         <?php
@@ -52,4 +53,11 @@
 
         <p class="form__info">* Ces champs sont obligatoire pour créer un nouveau article.</p>
     </form>
+    <?php } else { ?>
+        <p class="error error--big">
+            Vous n'avez pas les droits pour écrire un article. Dirigez vous sur la page de votre <a href="index.php?action=profile">profil</a> et modifiez vos informations personnelles pour en faire la demande.
+            <br><br>
+            Merci.
+        </p>
+    <?php } ?>
 </div>
