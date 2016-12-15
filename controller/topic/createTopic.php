@@ -10,11 +10,8 @@ function createTopicAction() {
     $credentials = getPost();
     $errors = checkErrorsCreateTopic($credentials);
     if(empty($errors)) {
-        $last_id_topic = insertTopic($credentials);
-        foreach ($last_id_topic as $key => $value) {
-            $_SESSION['last_id_topic'] = $value['id_billet'];
-        }
-        $template = 'topic';
+        insertTopic($credentials);
+        $template = 'profile';
     } else {
         $template = 'create';
     }
@@ -27,7 +24,7 @@ function checkErrorsCreateTopic($credentials) {
     if (!isset($_SESSION['user']['id_user']) || empty($_SESSION['user']['id_user'])) {
         $errors['user'] = "Vous n'êtes pas authentifiés, veuillez vous connecter";
     }
-    if ($_SESSION['user']['type'] >= 0) {
+    if ($_SESSION['user']['type'] = 0) {
         $errors['user'] = "Vous n'avez pas les droits pour écrire un article";
     }
     if( empty($credentials['title']) ) {

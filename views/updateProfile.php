@@ -14,6 +14,7 @@
     $lastname = $value['lastname'];
     $pseudo = $value['pseudo'];
     $avatar = $value['avatar'];
+    $type = $value['type'];
     ?>
 
     <form method="post" action="index.php?action=update&controler=user" class="form">
@@ -50,14 +51,16 @@
             <label for="pseudo" class="form__line__label">Nom d'utilisateur * : </label>
             <input type="text" name="pseudo" placeholder="Nom d'utilisateur" class="form__line__input" id="pseudo" value="<?php echo htmlspecialchars($pseudo); ?>" required>
         </div>
-
+        <?php if($type == 0) { ?>
         <div class="form__line">
             <input type="checkbox" name="blogger" class="form__line__check" id="type">
             <label for="type" class="form__line__label form__line__label--full form__line__label--check">Je souhaite être blogger (possibilité d'écrire des articles) :</label>
         </div>
+        <?php } ?>
 
         <div class="form__line">
             <input type="submit" value="Mettre à jour mes informations personnelles" name="update-profile" class="button">
+            <a href="?action=profile" class="link link--right">Annuler</a>
         </div>
     </form>
     <?php

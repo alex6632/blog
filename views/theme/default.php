@@ -11,28 +11,36 @@
     <header class="main-header">
         <div class="container">
             <a href="index.php"><h1 class="h1">Wesh blog</h1></a>
-            <?php if(isset($_SESSION['user']['id_user'])) { ?>
+            <?php
+            require_once 'model/user.php';
+            if(isset($_SESSION['user']['id_user'])) {
+                $data = selectInfoUser();
+                foreach ($data as $key => $value) {
+                    $name = $value['name'];
+                    $type = $value['type'];
+            ?>
+                    <a href="?action=deconnexion&controler=user" class="inline-b link link--bg">Deconnexion</a>
 
-                <a href="?action=deconnexion&controler=user" class="inline-b link link--bg">Deconnexion</a>
+                    <?php if($type == 1 || $type == 2) { ?>
+                        <a href="?action=create" class="inline-b link link--rv"><img src="images/write.svg" class="icon" alt="">Écrire un article !</a>
+                    <?php } ?>
 
-                <?php if(isset($_SESSION['user']['type']) && $_SESSION['user']['type'] != 0) { ?>
-                    <a href="?action=create" class="inline-b link link--rv"><img src="images/write.svg" class="icon" alt="">Écrire un article !</a>
-                <?php } ?>
-
-                <div class="hello">
-                    <div class="hello__avatar"></div>
-                    <div class="hello__right">
-                        <div class="hello__right__text">Bonjour <?php echo $_SESSION['user']['name']; ?></div>
-                        <a href="?action=profile" class="hello__right__link">Afficher le profil</a>
+                    <div class="hello">
+                        <div class="hello__avatar"></div>
+                        <div class="hello__right">
+                            <div class="hello__right__text">Bonjour <?php echo $_SESSION['user']['name']; ?></div>
+                            <a href="?action=profile" class="hello__right__link">Afficher le profil</a>
+                        </div>
                     </div>
-                </div>
-
-            <?php } else { ?>
-
+            <?php
+                }
+            } else {
+            ?>
                 <a href="?action=signup" class="inline-b link">S'inscrire</a>
                 <a href="?action=login" class="inline-b link link--bg">Se connecter</a>
-
-            <?php } ?>
+            <?php
+            }
+            ?>
         </div>
     </header>
 

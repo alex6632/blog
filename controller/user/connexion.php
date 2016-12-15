@@ -10,23 +10,41 @@ require_once 'utils.php';
 function loginAction() {
     global $template;
     global $errors;
+    global $layout;
 
     $credentials = getPost();
     $errors = checkLoginErrors($credentials);
     if (!empty($errors)) {
-        $template = 'login';
+        if($layout == 'default') {
+            $template = 'login';
+        } else if($layout == 'admin') {
+            $template = 'admin-login';
+        }
     }
     else {
         $user = userAuthModel($credentials['pseudo'], $credentials['pass']);
         if (!$user) {
-            $template = 'login';
+            if($layout == 'default') {
+                $template = 'login';
+            } else if($layout == 'admin') {
+                $template = 'admin-login';
+            }
         } else if ($user['account_check'] == 0) {
             $errors['pseudo'] = 'Votre compte n\'est pas vérifié. 
-            Veuillez valider le compte avec le mail reçu sur votre boîte de réception.';
-            $template = 'login';
-        } else{
-            $_SESSION['user'] = $user;
-            $template = 'profile';
+            Veuillez attendre confirmation de l\'administrateur';
+            if($layout == 'default') {
+                $template = 'login';
+            } else if($layout == 'admin') {
+                $template = 'admin-login';
+            }
+        } else {
+            if($layout == 'default') {
+                $_SESSION['user'] = $user;
+                $template = 'profile';
+            } else if($layout == 'admin') {
+                $_SESSION['user'] = $user;
+                $template = 'dashboard';
+            }
         }
     }
 

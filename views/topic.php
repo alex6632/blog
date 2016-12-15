@@ -52,17 +52,19 @@ foreach ($data as $key => $value) {
                             <div class="topic__infos topic__infos--update">Mis à jour le <?php echo $date_updated; ?> à <?php echo $time_updated; ?> | Par <?php echo htmlspecialchars($pseudo); ?></div>
                         <?php } ?>
                     </div>
-                    <?php if(isset($_SESSION['user']['id_user']) && $id_author == $_SESSION['user']['id_user']) { ?>
+                    <?php if(isset($_SESSION['user']['id_user']) && $id_author == $_SESSION['user']['id_user'] || (isset($_SESSION['user']['type']) && $_SESSION['user']['type'] == 2)) { ?>
                         <a href="?action=update&id_billet=<?php echo $id_billet; ?>" class="topic__edit"><img src="images/edit.svg" class="icon" alt=""></a>
                     <?php } ?>
 
                     <div class="comment-container">
                         <div class="container">
                             <h2>Commentaires (<?php echo $nbOfComments; ?>)</h2>
+                            <?php if(isset($_SESSION['user']['type'])) { ?>
                             <form action="index.php?action=createComment&controler=comment&id_billet=<?php echo $id_billet; ?>" method="post" class="topic__form">
                                 <textarea name="content" id="" cols="1" rows="1" placeholder="Votre commentaire ici..."></textarea>
                                 <input type="submit" value="Envoyer" class="button">
                             </form>
+                            <?php } ?>
                         </div>
                         <?php
 
@@ -96,7 +98,7 @@ foreach ($data as $key => $value) {
                                             <span class="comment__right__name"><?php echo $authorCom; ?></span>
                                             <span class="comment__right__date">
                                                 <?php echo 'le ' . $date_created_com . ' à ' . $time_created_com; ?>
-                                                <?php if(isset($_SESSION['user']['id_user']) && $id_user == $_SESSION['user']['id_user']) { ?>
+                                                <?php if(isset($_SESSION['user']['id_user']) && $id_user == $_SESSION['user']['id_user'] || (isset($_SESSION['user']['type']) && $_SESSION['user']['type'] == 2) ) { ?>
                                                     <?php echo ' - '; ?>
                                                     <a href="?action=updateComment&controler=comment&id_comment=<?php echo $idCom; ?>&id_billet=<?php echo $id_billet; ?>">Modifier</a>
                                                     <?php echo ' - '; ?>

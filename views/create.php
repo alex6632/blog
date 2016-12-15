@@ -6,7 +6,7 @@
 
 <div class="container">
     <?php if(isset($_SESSION['user']['type']) && $_SESSION['user']['type'] != 0) { ?>
-    <form method="post" action="index.php?action=createTopic&controler=topic" class="form form--lg">
+    <form method="post" action="index.php?action=createTopic&controler=topic&id_billet=<?php echo $_SESSION['last_id_topic']; ?>" class="form form--lg">
 
         <?php
         if(isset($errors)) {

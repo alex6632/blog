@@ -14,7 +14,7 @@ function updateUserAction() {
     if(empty($errors)) {
         updateUser($credentials);
         if (isset($credentials['blogger'])) {
-            sendMailAskBlogger($credentials);
+            sendAskUpToBlogger();
         }
         $template = 'profile';
 

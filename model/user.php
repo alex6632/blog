@@ -34,6 +34,12 @@ function selectInfoUser() {
     return $data;
 }
 
+function selectInfoAllUser() {
+    $query = "SELECT * FROM users";
+    $data = execute_query($query);
+    return $data;
+}
+
 function selectAuthorOfTopic($id_author) {
     $query = "SELECT pseudo FROM users WHERE id_user = ".$id_author;
     $data = execute_query($query);
@@ -53,5 +59,36 @@ function selectAuthorOfComment($id_user) {
 
 function validationUserAction($email) {
     $query = "UPDATE users SET account_check = 1 WHERE email=".$email;
+    execute_query($query);
+}
+
+function accountAccepted($id_user) {
+    $query = "UPDATE users SET account_check = 1 WHERE id_user=".$id_user;
+    execute_query($query);
+}
+
+function accountNotAccepted($id_user) {
+    $query = "UPDATE users SET account_check = 2 WHERE id_user=".$id_user;
+    execute_query($query);
+}
+
+function bloggerAccepted($id_user) {
+    $query = "UPDATE users SET type = 1 WHERE id_user=".$id_user;
+    execute_query($query);
+}
+
+function bloggerNotAccepted($id_user) {
+    $query = "UPDATE users SET type = 0 WHERE id_user=".$id_user;
+    execute_query($query);
+}
+
+function sendAskUpToBlogger() {
+    // set type to temporary number : 3
+    $query = "UPDATE users SET type = 3 WHERE id_user=".$_SESSION['user']['id_user'];
+    execute_query($query);
+}
+
+function deleteUser($id_user) {
+    $query = "DELETE FROM users WHERE id_user=".$id_user;
     execute_query($query);
 }
