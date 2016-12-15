@@ -8,9 +8,10 @@
     width: 100%;
     height: 300px;
     margin-bottom: 50px;
+    overflow: hidden;
 
     img {
-
+      @include center-h-v(absolute);
     }
 
     &__cat {

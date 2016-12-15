@@ -3,10 +3,7 @@ require_once 'model/user.php';
 require_once 'model/topic.php';
 require_once 'model/category.php';
 
-if ($_SESSION['user']['type'] < 2) {
-    $errors['user'] = "Vous n'avez pas les droits pour écrire un article";
-}
-
+if(isset($_SESSION['user']) && $_SESSION['user']['type'] == 2) {
 $data = selectInfoUser();
 foreach ($data as $key => $value) {
     $name = $value['name'];
@@ -191,3 +188,9 @@ foreach ($data as $key => $value) {
         <!-- ************************************************************** -->
     </div>
 </div>
+
+<?php
+} else {
+    header('Location: admin.php?action=admin-login');
+}
+?>
