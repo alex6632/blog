@@ -31,14 +31,14 @@
                 <h2 class="profile__infos">Mes informations</h2>
 
                 <ul class="profile__list">
-                    <li class="profile__list__item"><span class="profile__list__item__span">Votre prénom</span><span class="profile__list__item__rep"><?php echo $name; ?></span></li>
-                    <li class="profile__list__item"><span class="profile__list__item__span">Votre nom</span><span class="profile__list__item__rep"><?php echo $lastname; ?></span></li>
-                    <li class="profile__list__item"><span class="profile__list__item__span">Votre nom d'utilisateur</span><span class="profile__list__item__rep"><?php echo $pseudo; ?></span></li>
-                    <li class="profile__list__item"><span class="profile__list__item__span">Votre email</span><span class="profile__list__item__rep"><?php echo $email; ?></span></li>
+                    <li class="profile__list__item"><span class="profile__list__item__span">Votre prénom : </span><span class="profile__list__item__rep"><?php echo $name; ?></span></li>
+                    <li class="profile__list__item"><span class="profile__list__item__span">Votre nom : </span><span class="profile__list__item__rep"><?php echo $lastname; ?></span></li>
+                    <li class="profile__list__item"><span class="profile__list__item__span">Votre nom d'utilisateur : </span><span class="profile__list__item__rep"><?php echo $pseudo; ?></span></li>
+                    <li class="profile__list__item"><span class="profile__list__item__span">Votre email : </span><span class="profile__list__item__rep"><?php echo $email; ?></span></li>
                 </ul>
                 <ul class="profile__list">
-                    <li class="profile__list__item"><span class="profile__list__item__span">Compte crée le</span><span class="profile__list__item__rep"><?php echo $created; ?></span></li>
-                    <li class="profile__list__item"><span class="profile__list__item__span">Dernière mise à jour le</span><span class="profile__list__item__rep"><?php echo $updated; ?></span></li>
+                    <li class="profile__list__item"><span class="profile__list__item__span">Compte crée le : </span><span class="profile__list__item__rep"><?php echo $created; ?></span></li>
+                    <li class="profile__list__item"><span class="profile__list__item__span">Dernière mise à jour le : </span><span class="profile__list__item__rep"><?php echo $updated; ?></span></li>
                 </ul>
                 <a href="?action=updateProfile" class="inline-b link link--bg">Modifier mes informations personnelles</a>
 

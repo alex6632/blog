@@ -3,13 +3,17 @@ require_once 'model/user.php';
 require_once 'model/topic.php';
 require_once 'model/category.php';
 
+if ($_SESSION['user']['type'] < 2) {
+    $errors['user'] = "Vous n'avez pas les droits pour écrire un article";
+}
+
 $data = selectInfoUser();
 foreach ($data as $key => $value) {
     $name = $value['name'];
 ?>
     <div class="bloc-title">
         <div class="container">
-            <h1>Bonjour <?php echo $name; ?></h1>
+            <h1>Bonjour <?php echo htmlspecialchars($name); ?></h1>
         </div>
     </div>
 <?php
@@ -65,10 +69,10 @@ foreach ($data as $key => $value) {
                 }
             ?>
                 <tr>
-                    <td class=""><?php echo $name; ?></td>
-                    <td class=""><?php echo $lastname; ?></td>
-                    <td class=""><?php echo $pseudo; ?></td>
-                    <td class=""><?php echo $email; ?></td>
+                    <td class=""><?php echo htmlspecialchars($name); ?></td>
+                    <td class=""><?php echo htmlspecialchars($lastname); ?></td>
+                    <td class=""><?php echo htmlspecialchars($pseudo); ?></td>
+                    <td class=""><?php echo htmlspecialchars($email); ?></td>
                     <td class="">
                         <?php
                         if($type == 3) {
@@ -144,11 +148,11 @@ foreach ($data as $key => $value) {
                 ?>
                 <tr>
                     <td class=""><?php echo $i; ?></td>
-                    <td class=""><?php echo '<a href="index.php?action=topic&id_billet=' . $id_billet . '" target="_blank">'.$title.'</a>'; ?></td>
+                    <td class=""><?php echo '<a href="index.php?action=topic&id_billet=' . $id_billet . '" target="_blank">'.htmlspecialchars($title).'</a>'; ?></td>
                     <td class=""><?php echo $cat; ?></td>
                     <td class=""><?php echo 'Le '.$date_created.' à '.$time_created; ?></td>
                     <td class=""><?php echo 'Le '.$date_updated.' à '.$time_updated; ?></td>
-                    <td class=""><?php echo $author; ?></td>
+                    <td class=""><?php echo htmlspecialchars($author); ?></td>
                     <td class=""><a href="?action=deleteTopic&controler=topic&id_billet=<?php echo $id_billet; ?>">Supprimer</a></td>
                 </tr>
                 <?php $i++; ?>

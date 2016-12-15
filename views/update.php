@@ -52,7 +52,7 @@
 
         <div class="form__line">
             <label for="title" class="form__line__label">Titre *</label>
-            <input type="input" name="title" placeholder="Mon super article !" id="title" class="form__line__input" value="<?php echo $title; ?>">
+            <input type="input" name="title" placeholder="Mon super article !" id="title" class="form__line__input" value="<?php echo htmlspecialchars($title); ?>">
         </div>
 
         <div class="form__line">

@@ -36,8 +36,8 @@
                             echo '<div class="list__item__cat">'.$name_cat.'</div>';
 
                         echo '<a href="?action=topic&id_billet=' . $id_billet . '">';
-                            echo '<div class="list__item__title">'.$title.'</div>';
-                            echo "<div class=\"list__item__footer\">Rédigé le ".$date_created." à ".$time_created." | Par ".$pseudo."</div>";
+                            echo '<div class="list__item__title">'.htmlspecialchars($title).'</div>';
+                            echo "<div class=\"list__item__footer\">Rédigé le ".$date_created." à ".$time_created." | Par ".htmlspecialchars($pseudo)."</div>";
                         echo '</a>';
 
                         echo '</li>';

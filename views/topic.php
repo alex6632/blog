@@ -95,7 +95,7 @@ foreach ($data as $key => $value) {
                                             </div>
                                         </div>
                                         <div class="comment__right">
-                                            <span class="comment__right__name"><?php echo $authorCom; ?></span>
+                                            <span class="comment__right__name"><?php echo htmlspecialchars($authorCom); ?></span>
                                             <span class="comment__right__date">
                                                 <?php echo 'le ' . $date_created_com . ' à ' . $time_created_com; ?>
                                                 <?php if(isset($_SESSION['user']['id_user']) && $id_user == $_SESSION['user']['id_user'] || (isset($_SESSION['user']['type']) && $_SESSION['user']['type'] == 2) ) { ?>

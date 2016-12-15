@@ -2,34 +2,29 @@
 
 require_once 'model/comment.php';
 
-// TODO : Comme l'inscription, vérifier ce que l'utilisateur a remplie puis faire l'insertion en base via le model...
-
 function createCommentAction() {
     global $template;
 
-    $credentials = getPost();
+    $comment = getPost();
     $id_billet = $_GET['id_billet'];
-    $errors = checkErrors($credentials);
+    $errors = checkErrors($comment);
 
     if(empty($errors)) {
-        insertComment($credentials, $id_billet);
+        insertComment($comment, $id_billet);
         $template = 'topic';
     } else {
         $template = 'topic';
     }
 }
 
-function checkErrors($credentials) {
+function checkErrors($comment) {
 
     global $errors;
     $errors = [];
-    // TODO : Faire des vraies checks par fonction
 
-    if( empty($credentials['content']) ) {
+    if( empty($comment['content']) ) {
         $errors['content'] = "Le contenu est obligatoire";
     }
-    // TODO : les autres verifs
-
     return $errors;
 }
 

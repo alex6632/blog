@@ -10,7 +10,7 @@ if(isset($errors)) {
 ?>
 </div>
 
-<form method="post" action="admin.php?action=connexion&controler=user" class="admin-form">
+<form method="post" action="admin.php?action=connexionAdmin&controler=user" class="admin-form">
 
     <div class="admin-form__line">
         <label for="pseudo" class="admin-form__line__label">Nom d'utilisateur</label>
