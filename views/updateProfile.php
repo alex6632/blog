@@ -10,11 +10,12 @@
 
     $data = selectInfoUser();
     foreach ($data as $key => $value) {
-    $name = $value['name'];
-    $lastname = $value['lastname'];
-    $pseudo = $value['pseudo'];
-    $avatar = $value['avatar'];
-    $type = $value['type'];
+        (isset($_POST['name']) && !empty($_POST['name'])) ? $name = $_POST['name'] : $name = $value['name'];
+        (isset($_POST['lastname']) && !empty($_POST['lastname'])) ? $lastname = $_POST['lastname'] : $lastname = $value['lastname'];
+        //(isset($_POST['pseudo']) && !empty($_POST['pseudo'])) ? $pseudo = $_POST['pseudo'] : $pseudo = $value['pseudo'];
+        $pseudo = $value['pseudo'];
+        $avatar = $value['avatar'];
+        $type = $value['type'];
     ?>
 
     <form method="post" action="index.php?action=update&controler=user" class="form">
@@ -49,7 +50,7 @@
 
         <div class="form__line">
             <label for="pseudo" class="form__line__label">Nom d'utilisateur * : </label>
-            <input type="text" name="pseudo" placeholder="Nom d'utilisateur" class="form__line__input" id="pseudo" value="<?php echo htmlspecialchars($pseudo); ?>" required>
+            <div class="form__line__input disabled"><?php echo htmlspecialchars($pseudo); ?></div>
         </div>
         <?php if($type == 0) { ?>
         <div class="form__line">

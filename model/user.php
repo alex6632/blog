@@ -14,6 +14,19 @@ function userAuthModel($pseudo, $pass) {
     }
 }
 
+function userAuthAdminModel($pseudo, $pass) {
+    global $errors;
+
+    $query = "SELECT * FROM users WHERE pseudo = '".escape($pseudo)."' AND pass = '".sha1($pass)."'";
+    $results = my_fetch_all($query);
+    if(count($results) < 1) {
+        $errors['pseudo'] = "Nom d'utilisateur et/ou mot de passe sont incorrect(s)";
+        return false;
+    } else {
+        return $results[0];
+    }
+}
+
 function checkUnique($col, $content) {
     $query = "SELECT ".$col." FROM users WHERE ".$col." = '".escape($content)."'";
     $res = my_fetch_all($query);
@@ -47,7 +60,7 @@ function selectAuthorOfTopic($id_author) {
 }
 
 function updateUser($credentials) {
-    $query = "UPDATE users SET pseudo = '".$credentials['pseudo']."', name = '".$credentials['name']."', lastname = '".$credentials['lastname']."', avatar = '".$credentials['avatar']."', updated = '".date("Y-m-d H:i:s")."' WHERE id_user=".$_SESSION['user']['id_user'];
+    $query = "UPDATE users SET name = '".$credentials['name']."', lastname = '".$credentials['lastname']."', avatar = '".$credentials['avatar']."', updated = '".date("Y-m-d H:i:s")."' WHERE id_user=".$_SESSION['user']['id_user'];
     execute_query($query);
 }
 

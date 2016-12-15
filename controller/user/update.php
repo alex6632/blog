@@ -36,21 +36,6 @@ function checkSignUpErrors($credentials) {
     if (!checkName($credentials['lastname']))
         $errors['lastname'] = 'Le nom ne doit contenir que des caractères alphabétiques.';
 
-    if (($err = checkPseudo($credentials['pseudo'])) !== 0) {
-        if ($err === -1) {
-            $errors['pseudo'] = 'Le pseudo est un champs obligatoire';
-        }
-        else if ($err === -2) {
-            $errors['pseudo'] = 'Ce pseudo est déjà utilisé, veuillez en choisir un autre';
-        }
-        else if ($err === -3) {
-            $errors['pseudo'] = 'Le pseudo doit être compris entre 3 et 10 caractères';
-        }
-        else if ($err === -4) {
-            $errors['pseudo'] = 'Le pseudo ne doit contenir que des caractères alphanumériques';
-        }
-    }
-
     return $errors;
 }
 

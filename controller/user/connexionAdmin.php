@@ -22,7 +22,7 @@ function loginAction() {
         }
     }
     else {
-        $user = userAuthModel($credentials['pseudo'], $credentials['pass']);
+        $user = userAuthAdminModel($credentials['pseudo'], $credentials['pass']);
         if (!$user) {
             if($layout == 'default') {
                 $template = 'login';
@@ -32,6 +32,13 @@ function loginAction() {
         } else if ($user['account_check'] == 0) {
             $errors['pseudo'] = 'Votre compte n\'est pas vérifié. 
             Veuillez attendre confirmation de l\'administrateur';
+            if($layout == 'default') {
+                $template = 'login';
+            } else if($layout == 'admin') {
+                $template = 'admin-login';
+            }
+        } else if($user['type'] != 2) {
+            $errors['type'] = 'Vous n\'êtes pas administrateur';
             if($layout == 'default') {
                 $template = 'login';
             } else if($layout == 'admin') {
@@ -60,9 +67,6 @@ function checkLoginErrors($credentials) {
     if (!isset($credentials['pseudo']) || empty($credentials['pseudo'])) {
         $errors['pseudo'] = 'Le nom d\'utilisateur est obligatoire';
     }
-        if ($_SESSION['user']['type'] != 2) {
-            $errors['user'] = "Vous n'avez pas les droits pour écrire un article";
-        }
     if (!isset($credentials['pass']) || empty($credentials['pass'])) {
         $errors['pass'] = 'Le mot de passe est obligatoire';
     }

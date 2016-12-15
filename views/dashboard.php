@@ -133,7 +133,7 @@ foreach ($data as $key => $value) {
                 $date_updated = substr($date_u, 8, 2).'-'.substr($date_u, 5, 2).'-'.substr($date_u, 0, 4);
                 $time_updated = substr($date_u, 10, 9);
 
-                $data3 = selectCategory();
+                $data3 = selectCategoryOfTopic($id_categorie);
                 foreach ($data3 as $key3 => $value3) {
                     $cat = $value3['name'];
 

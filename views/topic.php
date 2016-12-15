@@ -100,7 +100,7 @@ foreach ($data as $key => $value) {
                                                 <?php echo 'le ' . $date_created_com . ' à ' . $time_created_com; ?>
                                                 <?php if(isset($_SESSION['user']['id_user']) && $id_user == $_SESSION['user']['id_user'] || (isset($_SESSION['user']['type']) && $_SESSION['user']['type'] == 2) ) { ?>
                                                     <?php echo ' - '; ?>
-                                                    <a href="?action=updateComment&controler=comment&id_comment=<?php echo $idCom; ?>&id_billet=<?php echo $id_billet; ?>">Modifier</a>
+                                                    <a href="?action=updateComment&id_comment=<?php echo $idCom; ?>&id_billet=<?php echo $id_billet; ?>">Modifier</a>
                                                     <?php echo ' - '; ?>
                                                     <a href="?action=deleteComment&controler=comment&id_comment=<?php echo $idCom; ?>&id_billet=<?php echo $id_billet; ?>">Supprimer</a>
                                                 <?php } ?>
