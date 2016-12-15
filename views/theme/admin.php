@@ -12,7 +12,7 @@
     <div class="container">
         <a href="index.php"><h1 class="h1">Wesh blog - Interface d'administration</h1></a>
 
-        <?php if(isset($_SESSION['user']['id_user'])) { ?>
+        <?php if(isset($_SESSION['user']) && $_SESSION['user']['type'] == 2) { ?>
             <a href="?action=deconnexion&controler=user" class="inline-b link link--bg">Deconnexion</a>
         <?php } ?>
     </div>
